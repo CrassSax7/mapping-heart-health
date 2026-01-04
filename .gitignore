@@ -1,0 +1,46 @@
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.pyc
+
+# -------------------------
+# Jupyter
+# -------------------------
+.ipynb_checkpoints/
+
+# -------------------------
+# OS / Editor
+# -------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# -------------------------
+# Virtual environments
+# -------------------------
+venv/
+.env/
+
+# -------------------------
+# Secrets / credentials
+# -------------------------
+token.txt
+*.env
+*.key
+*.pem
+
+# -------------------------
+# Raw / intermediate data
+# -------------------------
+data/raw/
+data/interim/
+*.zip
+*.xpt
+
+# -------------------------
+# Optional generated outputs
+# -------------------------
+outputs/
+logs/
