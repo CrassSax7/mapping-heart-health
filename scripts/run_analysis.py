@@ -1,0 +1,122 @@
+"""
+Mapping Heart Health
+Scripted Analysis Entry Point
+
+This script reproduces the core statistical analysis and visual outputs
+from the project notebook for quick execution and review.
+"""
+
+import os
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+from scipy.stats import pearsonr
+
+# -----------------------------
+# Paths (relative to repo root)
+# -----------------------------
+DATA_PATH = os.path.join("data", "merged_heart_health_data.csv")
+PLOTS_DIR = os.path.join("plots")
+
+os.makedirs(PLOTS_DIR, exist_ok=True)
+
+# -----------------------------
+# Load data
+# -----------------------------
+df = pd.read_csv(DATA_PATH, dtype={"fips": str})
+
+df = df[
+    [
+        "mortality_rate",
+        "smoking_rate",
+        "obesity_rate",
+        "inactivity_rate"
+    ]
+].dropna()
+
+print(f"Loaded dataset with {df.shape[0]:,} county observations")
+
+# -----------------------------
+# Correlation analysis
+# -----------------------------
+print("\n=== Pearson Correlations with Mortality Rate ===")
+for var in ["smoking_rate", "obesity_rate", "inactivity_rate"]:
+    r, p = pearsonr(df[var], df["mortality_rate"])
+    print(f"{var}: r = {r:.3f}, p < 0.001")
+
+# -----------------------------
+# Multivariate regression
+# -----------------------------
+X = df[["smoking_rate", "obesity_rate", "inactivity_rate"]]
+X = sm.add_constant(X)
+y = df["mortality_rate"]
+
+model = sm.OLS(y, X).fit()
+print("\n=== Multivariate OLS Regression ===")
+print(model.summary())
+
+# -----------------------------
+# Visualization settings
+# -----------------------------
+sns.set(style="whitegrid")
+
+# -----------------------------
+# Scatter plots with regression
+# -----------------------------
+fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+
+sns.regplot(
+    data=df,
+    x="smoking_rate",
+    y="mortality_rate",
+    scatter_kws={"alpha": 0.3},
+    ax=axes[0]
+)
+axes[0].set_title("Smoking Rate vs Heart Disease Mortality")
+
+sns.regplot(
+    data=df,
+    x="obesity_rate",
+    y="mortality_rate",
+    scatter_kws={"alpha": 0.3},
+    ax=axes[1]
+)
+axes[1].set_title("Obesity Rate vs Heart Disease Mortality")
+
+sns.regplot(
+    data=df,
+    x="inactivity_rate",
+    y="mortality_rate",
+    scatter_kws={"alpha": 0.3},
+    ax=axes[2]
+)
+axes[2].set_title("Physical Inactivity vs Heart Disease Mortality")
+
+plt.tight_layout()
+plt.savefig(
+    os.path.join(PLOTS_DIR, "scatter_behavioral_risk.png"),
+    dpi=300,
+    bbox_inches="tight"
+)
+plt.close()
+
+# -----------------------------
+# Correlation heatmap
+# -----------------------------
+corr = df.corr()
+
+plt.figure(figsize=(5, 4))
+sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f")
+plt.title("Correlation Matrix: Behavioral Risk Factors")
+
+plt.tight_layout()
+plt.savefig(
+    os.path.join(PLOTS_DIR, "correlation_heatmap.png"),
+    dpi=300,
+    bbox_inches="tight"
+)
+plt.close()
+
+print("\nAnalysis complete.")
+print(f"Plots saved to '{PLOTS_DIR}/'")
