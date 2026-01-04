@@ -82,8 +82,6 @@ mapping-heart-health/
 HOW TO RUN
 git clone https://github.com/yourusername/mapping-heart-health.git
 cd mapping-heart-health
-python -m venv venv
-source venv/bin/activate     # macOS / Linux
-venv\Scripts\activate        # Windows
 pip install -r requirements.txt
-jupyter notebook notebooks/heart_disease_behavioral_risk_analysis.ipynb
+python scripts/run_analysis.py
+
