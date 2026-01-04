@@ -80,8 +80,15 @@ mapping-heart-health/
 └── correlation_heatmap.png
 
 HOW TO RUN
-git clone https://github.com/yourusername/mapping-heart-health.git
+
+
+## How to Run
+```bash
+git clone https://github.com/CrassSax7/mapping-heart-health.git
 cd mapping-heart-health
 pip install -r requirements.txt
 python scripts/run_analysis.py
+
+
+
 
