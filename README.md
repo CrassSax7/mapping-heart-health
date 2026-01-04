@@ -79,18 +79,11 @@ mapping-heart-health/
 ├── scatter_behavioral_risk.png
 └── correlation_heatmap.png
 
-
-# 1. Clone the repository
+HOW TO RUN
 git clone https://github.com/yourusername/mapping-heart-health.git
 cd mapping-heart-health
-
-# 2. (Recommended) Create and activate a virtual environment
 python -m venv venv
 source venv/bin/activate     # macOS / Linux
 venv\Scripts\activate        # Windows
-
-# 3. Install dependencies
 pip install -r requirements.txt
-
-# 4. Launch the analysis notebook
 jupyter notebook notebooks/heart_disease_behavioral_risk_analysis.ipynb
