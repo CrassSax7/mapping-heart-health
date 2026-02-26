@@ -84,9 +84,8 @@ HOW TO RUN
 
 ## How to Run
 ```bash
-git clone git@github.com:CrassSax7/mapping-heart-health.git
-cd mapping-heart-health
+git clone git@github.com:CrassSax7/Analyzing-US-Census-Public-Health.git
+cd Analyzing-US-Census-Public-Health
 pip install -r requirements.txt
-python scripts/run_analysis.py
-
+python scripts/analysis.py
 
