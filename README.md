@@ -87,7 +87,7 @@ mapping-heart-health/
 git clone https://github.com/CrassSax7/mapping-heart-health.git
 cd mapping-heart-health
 
-python3 scripts/analysis.py
+python3 scripts/run_analysis.py
 ```
 
 ---
@@ -98,5 +98,5 @@ python3 scripts/analysis.py
 git clone https://github.com/CrassSax7/mapping-heart-health.git
 cd mapping-heart-health
 
-python scripts\analysis.py
+python scripts\run_analysis.py
 ```
