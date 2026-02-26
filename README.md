@@ -87,15 +87,13 @@ mapping-heart-health/
 git clone https://github.com/CrassSax7/mapping-heart-health.git
 cd mapping-heart-health
 
-# Create virtual environment
 python3 -m venv venv
 source venv/bin/activate
 
-# Install dependencies
+
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 
-# Run analysis
 python scripts/run_analysis.py
 ```
 
@@ -107,14 +105,11 @@ python scripts/run_analysis.py
 git clone https://github.com/CrassSax7/mapping-heart-health.git
 cd mapping-heart-health
 
-# Create virtual environment
 python -m venv venv
 venv\Scripts\activate
 
-# Install dependencies
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 
-# Run analysis
 python scripts\run_analysis.py
 ```
