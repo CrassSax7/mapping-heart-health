@@ -79,12 +79,24 @@ mapping-heart-health/
 ├── scatter_behavioral_risk.png
 └── correlation_heatmap.png
 
-HOW TO RUN
+---
 
+## 🚀 How to Run (Mac)
 
-## How to Run
 ```bash
-git clone git@github.com:CrassSax7/mapping-heart-health.git
+git clone https://github.com/CrassSax7/mapping-heart-health.git
 cd mapping-heart-health
-python scripts/analysis.py
 
+python3 scripts/analysis.py
+```
+
+---
+
+## 🚀 How to Run (Windows)
+
+```bash
+git clone https://github.com/CrassSax7/mapping-heart-health.git
+cd mapping-heart-health
+
+python scripts\analysis.py
+```
