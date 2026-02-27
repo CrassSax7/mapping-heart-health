@@ -66,8 +66,10 @@ All datasets were cleaned and merged using standardized **5-digit FIPS codes**.
 - Omitted variables such as healthcare access, income, and environmental factors
 
 ---
+```markdown
+## 📁 Repository Structure
 
-## Repository Structure
+```text
 mapping-heart-health/
 ├── README.md
 ├── requirements.txt
@@ -78,7 +80,7 @@ mapping-heart-health/
 └── plots/
 ├── scatter_behavioral_risk.png
 └── correlation_heatmap.png
-
+```
 ---
 
 ## 🚀 How to Run (Mac)
